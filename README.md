@@ -58,4 +58,4 @@ Grado en Multimedia — Universitat Oberta de Catalunya.
 
 Asignatura: Desarrollo de aplicaciones interactivas.
 
-PR2 — Desktop App: Interacción cámara.
+R2 — Desktop App: Interacción cámara.
