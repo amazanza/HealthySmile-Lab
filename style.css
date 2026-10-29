@@ -1,0 +1,632 @@
+
+/* ------------------------------------------------------------
+   TIPOGRAFÍAS
+------------------------------------------------------------ */
+
+@font-face {
+  font-family: "Fredoka";
+  src: url("assets/fonts/Fredoka-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("assets/fonts/Nunito-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("assets/fonts/Nunito-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------
+   ESTILOS GENERALES
+------------------------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: #fff;
+  color: #493963;
+  font-family: "Nunito", sans-serif;
+}
+
+.aplicacion {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 30px 28px;
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------
+   DECORACIONES DE HALLOWEEN
+------------------------------------------------------------ */
+
+.decoracion {
+  position: absolute;
+  z-index: 0;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.esquina-fantasma {
+  top: 4px;
+  left: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+.esquina-superior-derecha {
+  top: 0;
+  right: 0;
+  width: 145px;
+  height: 145px;
+}
+
+.esquina-inferior-izquierda {
+  bottom: 0;
+  left: 0;
+  width: 130px;
+  height: 130px;
+}
+
+.esquina-inferior-derecha {
+  bottom: 0;
+  right: 0;
+  width: 130px;
+  height: 130px;
+}
+
+.vela-esquina {
+  bottom: 17px;
+  right: 17px;
+  width: 42px;
+  height: 65px;
+  z-index: 1;
+}
+
+.recurso-oculto {
+  display: none;
+}
+
+/* ------------------------------------------------------------
+   CABECERA Y LOGOTIPO
+------------------------------------------------------------ */
+
+.cabecera {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  min-height: 85px;
+  padding-left: 95px;
+}
+
+.logotipo {
+  display: block;
+
+  /* Tamaño del logotipo. */
+  width: 270px;
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  position: relative;
+  z-index: 1;
+  margin: auto 0 16px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #72509d;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------
+   ESTRUCTURA DE TRES COLUMNAS
+------------------------------------------------------------ */
+
+.contenido-principal {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns:
+    minmax(170px, 1fr)
+    minmax(0, 480px)
+    minmax(170px, 1fr);
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto auto;
+}
+
+/* ------------------------------------------------------------
+   PANEL IZQUIERDO
+------------------------------------------------------------ */
+
+.panel-izquierdo {
+  padding: 18px 0;
+  text-align: left;
+}
+
+.panel-izquierdo h2 {
+  margin: 0 0 16px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #7652a2;
+}
+
+.panel-izquierdo p {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.panel-izquierdo .fuente-recomendacion {
+  margin-top: 18px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #766b84;
+}
+
+.fuente-recomendacion a {
+  color: #72509d;
+  text-decoration: underline;
+}
+
+/* ------------------------------------------------------------
+   CÁMARA Y MARCO CENTRAL
+------------------------------------------------------------ */
+
+.actividad-central {
+  min-width: 0;
+  width: 100%;
+}
+
+.marco-camara {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 9px;
+  background-color: #eee6f8;
+  border: 4px solid #a884cd;
+  border-radius: 21px;
+  box-shadow: 0 6px 18px rgba(97, 67, 128, .12);
+}
+
+#zona-camara {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  background: #24202c;
+}
+
+#zona-camara canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* ------------------------------------------------------------
+   PANTALLA DE CARGA
+------------------------------------------------------------ */
+
+.pantalla-carga {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: #f7f1fc;
+}
+
+.pantalla-carga.oculta {
+  display: none;
+}
+
+.animacion-carga {
+  position: relative;
+  width: 170px;
+  height: 55px;
+  border-bottom: 4px solid #d9c6ef;
+}
+
+.calabaza-carga {
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  animation: mover-calabaza 2.5s ease-in-out infinite alternate;
+}
+
+#mensaje-carga {
+  margin: 0;
+  color: #70518f;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@keyframes mover-calabaza {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: calc(100% - 45px);
+  }
+}
+
+/* ------------------------------------------------------------
+   PERSONAJE Y MENSAJES
+------------------------------------------------------------ */
+
+.personaje-mensajes {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  max-width: 480px;
+  margin: 14px auto 0;
+}
+
+.diente-personaje {
+  display: block;
+  width: 90px;
+  height: 100px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.bocadillo {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  padding: 13px 18px;
+  background: #f7f2fc;
+  border: 2px solid #d8c5ed;
+  border-radius: 18px;
+  text-align: center;
+}
+
+.bocadillo::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -12px;
+  width: 20px;
+  height: 20px;
+  background: #f7f2fc;
+  border-left: 2px solid #d8c5ed;
+  border-bottom: 2px solid #d8c5ed;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+#estado-cepillado {
+  position: relative;
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #7652a2;
+}
+
+/* ------------------------------------------------------------
+   PANEL DERECHO
+------------------------------------------------------------ */
+
+.panel-derecho {
+  padding: 18px 10px;
+  text-align: center;
+}
+
+.indicador-boca {
+  margin: 0 0 30px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #7652a2;
+}
+
+.titulo-contador {
+  margin: 0 0 12px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #7652a2;
+}
+
+.contador-cepillado {
+  margin: 0;
+  font-family: "Fredoka", sans-serif;
+  font-size: 27px;
+  font-weight: 600;
+  color: #493963;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------
+   VICTORIA Y BOTONES DEL FINAL
+------------------------------------------------------------ */
+
+/* Conservamos la columna de la izquierda para que no se
+   nos desplace el marco central al terminar el cepillado. */
+
+.aplicacion.victoria .panel-izquierdo {
+  visibility: hidden;
+}
+
+.aplicacion.victoria #panel-indicadores {
+  display: none;
+}
+
+.botones-final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.botones-final[hidden] {
+  display: none;
+}
+
+.boton-final {
+  width: 160px;
+  max-width: 100%;
+  padding: 13px 18px;
+  background: #eee6f8;
+  border: 2px solid #a884cd;
+  border-radius: 17px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 19px;
+  color: #624387;
+  cursor: pointer;
+}
+
+.boton-final:hover {
+  background: #e3d4f3;
+}
+
+.boton-final:focus-visible {
+  outline: 3px solid #72509d;
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------
+   PANTALLA DE CRÉDITOS
+------------------------------------------------------------ */
+
+.pantalla-creditos {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  background: #f7f2fc;
+  color: #493963;
+}
+
+.pantalla-creditos.oculta {
+  display: none;
+}
+
+/* El movimiento del texto lo controlamos desde JavaScript. */
+
+.creditos-desplazamiento {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.creditos-contenido {
+  padding: 0 24px 28px;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.creditos-contenido p {
+  margin: 0 0 18px;
+}
+
+.creditos-contenido a {
+  color: #72509d;
+  text-decoration: underline;
+}
+
+/* Encabezados y títulos centrados. */
+
+.creditos-titulo,
+.creditos-subtitulo,
+.creditos-destacado,
+.creditos-copyright {
+  text-align: center;
+}
+
+.creditos-destacado {
+  font-family: "Fredoka", sans-serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #7652a2;
+}
+
+/* Referencias y atribución alineadas a la izquierda. */
+
+.creditos-bibliografia,
+.creditos-bibliografia p,
+.creditos-recursos {
+  text-align: left;
+}
+
+.creditos-separador {
+  height: 34px;
+}
+
+.aplicacion.creditos .personaje-mensajes {
+  visibility: hidden;
+}
+
+/* ------------------------------------------------------------
+   ADAPTACIÓN A VENTANAS INTERMEDIAS
+------------------------------------------------------------ */
+
+@media (max-width: 950px) {
+  .contenido-principal {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 680px;
+  }
+
+  .actividad-central {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .panel-izquierdo {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .panel-derecho {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .aplicacion.victoria .panel-derecho {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+/* ------------------------------------------------------------
+   ADAPTACIÓN A PANTALLAS PEQUEÑAS
+------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+  .aplicacion {
+    padding: 10px 18px 22px;
+  }
+
+  .esquina-fantasma {
+    width: 70px;
+    height: 70px;
+  }
+
+  .esquina-superior-derecha,
+  .esquina-inferior-izquierda,
+  .esquina-inferior-derecha {
+    width: 90px;
+    height: 90px;
+  }
+
+  .vela-esquina {
+    width: 30px;
+    height: 47px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .cabecera {
+    min-height: 65px;
+    padding-left: 65px;
+  }
+
+  .logotipo {
+    width: 200px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .marco-camara {
+    padding: 7px;
+    border-width: 3px;
+    border-radius: 15px;
+  }
+
+  .personaje-mensajes {
+    gap: 10px;
+  }
+
+  .diente-personaje {
+    width: 72px;
+    height: 80px;
+  }
+
+  .bocadillo {
+    min-height: 62px;
+    padding: 11px 12px;
+  }
+
+  #estado-cepillado {
+    font-size: 16px;
+  }
+
+  .panel-izquierdo h2 {
+    font-size: 18px;
+  }
+
+  .panel-izquierdo p {
+    font-size: 14px;
+  }
+
+  .indicador-boca {
+    font-size: 20px;
+  }
+
+  .titulo-contador {
+    font-size: 16px;
+  }
+
+  .contador-cepillado {
+    font-size: 20px;
+  }
+
+  .creditos-contenido {
+    padding: 0 15px 20px;
+    font-size: 12px;
+  }
+
+  .creditos-destacado {
+    font-size: 16px;
+  }
+
+  .boton-final {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+}

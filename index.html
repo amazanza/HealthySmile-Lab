@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HealthySmile Lab — ¡Una sonrisa de miedo!</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/p5@2.3.4/lib/p5.js"></script>
+  <script src="sketch.js" defer></script>
+</head>
+
+<body>
+  <main class="aplicacion" id="aplicacion">
+
+    <!-- Decoraciones de Halloween. -->
+    <img
+      class="decoracion esquina-fantasma"
+      src="assets/images/Fantasma.png"
+      alt=""
+    >
+
+    <img
+      class="decoracion esquina-superior-derecha"
+      src="assets/images/Tela1.png"
+      alt=""
+    >
+
+    <img
+      class="decoracion esquina-inferior-izquierda"
+      src="assets/images/Tela2.png"
+      alt=""
+    >
+
+    <img
+      class="decoracion esquina-inferior-derecha"
+      src="assets/images/Tela3.png"
+      alt=""
+    >
+
+    <img
+      class="decoracion vela-esquina"
+      src="assets/images/Vela.png"
+      alt=""
+    >
+
+    <!-- Imágenes auxiliares para las animaciones. -->
+    <img
+      class="recurso-oculto"
+      id="figura-murcielago"
+      src="assets/images/Murcielago.png"
+      alt=""
+    >
+
+    <img
+      class="recurso-oculto"
+      id="cepillo-html-azul"
+      src="assets/images/Cepillo_azul.png"
+      alt=""
+    >
+
+    <img
+      class="recurso-oculto"
+      id="cepillo-html-verde"
+      src="assets/images/Cepillo_verde.png"
+      alt=""
+    >
+
+    <img
+      class="recurso-oculto"
+      id="cepillo-html-rosa"
+      src="assets/images/Cepillo_rosa.png"
+      alt=""
+    >
+
+    <img
+      class="recurso-oculto"
+      id="cepillo-html-amarillo"
+      src="assets/images/Cepillo_amarillo.png"
+      alt=""
+    >
+
+    <img
+      class="recurso-oculto"
+      id="imagen-victoria"
+      src="assets/images/Victoria.png"
+      alt=""
+    >
+
+    <!-- Cabecera. -->
+    <header class="cabecera">
+      <img
+        class="logotipo"
+        src="assets/images/Logo.png"
+        alt="HealthySmile Lab"
+      >
+    </header>
+
+    <h1>¡Una sonrisa de miedo!</h1>
+
+    <div class="contenido-principal">
+
+      <!-- Información sobre el cepillado. -->
+      <aside class="panel-izquierdo">
+        <h2>¡Dos minutos para una sonrisa sana!</h2>
+
+        <p>
+          El Consejo General de Dentistas de España recomienda
+          dedicar dos minutos al cepillado dental.
+        </p>
+
+        <p class="fuente-recomendacion">
+          Fuente:
+          <a
+            href="https://consejodentistas.es/informacion-publica/salud-bucodental/campanas/taller-de-higiene-bucodental/documento-de-consenso-sobre-el-cepillado/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Consejo General de Dentistas de España
+          </a>.
+        </p>
+      </aside>
+
+      <!-- Cámara, carga y créditos. -->
+      <section class="actividad-central" aria-label="Actividad de cepillado">
+        <div class="marco-camara">
+          <div id="zona-camara">
+
+            <div class="pantalla-carga" id="pantalla-carga">
+              <div class="animacion-carga">
+                <img
+                  class="calabaza-carga"
+                  src="assets/images/Calabaza.png"
+                  alt=""
+                >
+              </div>
+
+              <p id="mensaje-carga">
+                Preparando la cámara...
+              </p>
+            </div>
+
+            <!-- Créditos sincronizados con Outro.mp3. -->
+            <div
+              class="pantalla-creditos oculta"
+              id="pantalla-creditos"
+              aria-hidden="true"
+            >
+              <div class="creditos-desplazamiento">
+                <div class="creditos-contenido">
+
+                  <p class="creditos-titulo">
+                    <strong>DESARROLLO DE APLICACIONES INTERACTIVAS</strong>
+                  </p>
+
+                  <p class="creditos-subtitulo">
+                    PR2 — Desktop App: Interacción cámara
+                  </p>
+
+                  <div class="creditos-separador"></div>
+
+                  <p class="creditos-destacado">
+                    HEALTHYSMILE LAB
+                  </p>
+
+                  <p class="creditos-titulo">
+                    ¡Una sonrisa de miedo!
+                  </p>
+
+                  <p class="creditos-titulo">
+                    Creación, diseño y desarrollo
+                  </p>
+
+                  <p class="creditos-titulo">
+                    Amaya Muñoz Azanza
+                  </p>
+
+                  <div class="creditos-separador"></div>
+
+                  <!-- Recursos visuales y sonoros. -->
+                  <p class="creditos-destacado">
+                    RECURSOS VISUALES Y SONOROS
+                  </p>
+
+                  <p class="creditos-recursos">
+                    Las imágenes se han generado con ChatGPT y los
+                    efectos de sonido y las melodías con ElevenLabs,
+                    siguiendo las indicaciones creativas de la autora.
+                  </p>
+
+                  <div class="creditos-separador"></div>
+
+                  <!-- Bibliografía. -->
+                  <p class="creditos-destacado">
+                    Bibliografía
+                  </p>
+
+                  <div class="creditos-bibliografia">
+
+                    <p>
+                      Consejo General de Dentistas de España. (2024).
+                      <em>Documento de consenso sobre el cepillado.</em>
+                      <a href="https://consejodentistas.es/informacion-publica/salud-bucodental/campanas/taller-de-higiene-bucodental/documento-de-consenso-sobre-el-cepillado/">
+                        https://consejodentistas.es/informacion-publica/salud-bucodental/campanas/taller-de-higiene-bucodental/documento-de-consenso-sobre-el-cepillado/
+                      </a>
+                    </p>
+
+                    <p>
+                      Electron. (s. f.-a).
+                      <em>BrowserWindow.</em>
+                      <a href="https://www.electronjs.org/es/docs/latest/api/browser-window">
+                        https://www.electronjs.org/es/docs/latest/api/browser-window
+                      </a>
+                    </p>
+
+                    <p>
+                      Electron. (s. f.-b).
+                      <em>Construye tu primera aplicación.</em>
+                      <a href="https://www.electronjs.org/es/docs/latest/tutorial/tutorial-first-app">
+                        https://www.electronjs.org/es/docs/latest/tutorial/tutorial-first-app
+                      </a>
+                    </p>
+
+                    <p>
+                      Google. (2026, 9 de octubre).
+                      <em>Face landmark detection guide for Web.</em>
+                      Google AI Edge.
+                      <a href="https://developers.google.com/edge/mediapipe/solutions/vision/face_landmarker/web_js">
+                        https://developers.google.com/edge/mediapipe/solutions/vision/face_landmarker/web_js
+                      </a>
+                    </p>
+
+                    <p>
+                      Mandic, V. (s. f.).
+                      <em>Human</em> [Código fuente]. GitHub.
+                      <a href="https://github.com/vladmandic/human">
+                        https://github.com/vladmandic/human
+                      </a>
+                    </p>
+
+                    <p>
+                      Márquez Salguero, R., y Casado Martínez, C.
+                      (s. f.).
+                      <em>Cuaderno de programación con p5.js.</em>
+                      Universitat Oberta de Catalunya.
+                      <a href="https://disseny.recursos.uoc.edu/materials/programacio/es/">
+                        https://disseny.recursos.uoc.edu/materials/programacio/es/
+                      </a>
+                    </p>
+
+                    <p>
+                      MDN Web Docs. (2026, 2 de junio).
+                      <em>Guía de JavaScript.</em> Mozilla.
+                      <a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide">
+                        https://developer.mozilla.org/es/docs/Web/JavaScript/Guide
+                      </a>
+                    </p>
+
+                    <p>
+                      ml5.js. (s. f.).
+                      <em>Reference.</em>
+                      <a href="https://docs.ml5js.org/">
+                        https://docs.ml5js.org/
+                      </a>
+                    </p>
+
+                    <p>
+                      Mühler, V. (s. f.).
+                      <em>
+                        face-api.js: JavaScript API for face detection
+                        and face recognition in the browser and Node.js
+                        with TensorFlow.js
+                      </em>
+                      [Código fuente]. GitHub.
+                      <a href="https://github.com/justadudewhohacks/face-api.js">
+                        https://github.com/justadudewhohacks/face-api.js
+                      </a>
+                    </p>
+
+                    <p>
+                      p5.js. (s. f.).
+                      <em>Reference.</em>
+                      <a href="https://p5js.org/reference/">
+                        https://p5js.org/reference/
+                      </a>
+                    </p>
+
+                    <p>
+                      Tauri Contributors. (2025, 19 de febrero).
+                      <em>¿Qué es Tauri?</em>
+                      <a href="https://v2.tauri.app/es/start/">
+                        https://v2.tauri.app/es/start/
+                      </a>
+                    </p>
+
+                    <p>
+                      TensorFlow. (s. f.).
+                      <em>Face Landmarks Detection</em>
+                      [Código fuente]. GitHub.
+                      <a href="https://github.com/tensorflow/tfjs-models/blob/master/face-landmarks-detection/README.md">
+                        https://github.com/tensorflow/tfjs-models/blob/master/face-landmarks-detection/README.md
+                      </a>
+                    </p>
+
+                  </div>
+
+                  <div class="creditos-separador"></div>
+
+                  <p class="creditos-copyright">
+                    © 2026 — Amaya Muñoz Azanza
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Personaje y mensajes de la aplicación. -->
+        <div class="personaje-mensajes">
+          <img
+            class="diente-personaje"
+            src="assets/images/Diente.png"
+            alt="Diente de HealthySmile Lab"
+          >
+
+          <div class="bocadillo">
+            <p id="estado-cepillado" aria-live="polite">
+              Preparando reconocimiento facial...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Indicadores y botones finales. -->
+      <aside class="panel-derecho">
+
+        <div id="panel-indicadores">
+          <p class="indicador-boca" id="indicador-boca">
+            Preparando...
+          </p>
+
+          <p class="titulo-contador">
+            Tiempo de cepillado
+          </p>
+
+          <p class="contador-cepillado" id="contador-cepillado">
+            00:00 / 02:00
+          </p>
+        </div>
+
+        <div class="botones-final" id="botones-final" hidden>
+          <button
+            class="boton-final"
+            id="boton-reiniciar"
+            type="button"
+          >
+            Reiniciar
+          </button>
+
+          <button
+            class="boton-final"
+            id="boton-creditos"
+            type="button"
+          >
+            Créditos
+          </button>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
